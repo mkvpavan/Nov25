@@ -31,7 +31,24 @@ Testcase 1: For the given string }{{}}{{{ since the length is even we just need 
 import unittest
 
 def min_rev(s):
-    pass
+    if len(s) % 2:
+        return float('inf')
+    inversions = 0             
+    open = 0                   
+ 
+    for i in range(len(s)):
+ 
+        if s[i] == '{':
+            open = open + 1
+ 
+        else:
+            if open:
+                open = open - 1        
+            else:
+                inversions = inversions + 1     
+                open = 1                        
+ 
+    return inversions + open // 2
 
 # DO NOT TOUCH THE BELOW CODE
 class TestCommonWords(unittest.TestCase):

@@ -53,7 +53,20 @@ from collections import Counter
 
 
 def unique_occurrences(nums):
-	pass
+    l=[]
+    for i in range(0,len(nums)):
+        if nums[i] not in l:
+            l.append(nums[i]) 
+    c=[]
+    for i in range(0,len(l)):
+        c.append(nums.count(l[i]))
+    for i in range(0,len(c)):
+        if c.count(c[i])!=1:
+            return False
+            break
+        else:
+            flag=1
+    return flag==1
 # DO NOT TOUCH THE BELOW CODE
 # pylint: disable=unused-variable
 
