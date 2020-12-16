@@ -16,11 +16,31 @@ output: 0
 import unittest
 
 def min_row(m,n,l):
-    """
-    m,n define size of matrix 
-    l list of m*n elements
-    """
-	pass
+    r=[]
+    for i in range(0,m*n,m):
+        r.append(l[i:i+m])
+    
+    if(len(l)!=m*n):
+        n=len(r)-1   
+    re=[]
+    for i in range(n):
+        s=0
+        for j in range(m):
+            s=s+r[i][j]
+        re.append(s)
+        
+    
+    min=re[0]
+    for i in range(len(re)):
+        if(re[i]<min):
+            min=re[i]
+
+
+    c=1
+    if (c not in l):
+        return -1
+    else:
+        return re.index(min)
 
 # DO NOT TOUCH THE BELOW CODE
 class TestCommonWords(unittest.TestCase):
